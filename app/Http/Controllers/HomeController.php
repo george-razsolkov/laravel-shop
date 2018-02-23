@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Aimeos\MShop\Order;
 class HomeController extends Controller
 {
     /**
@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('guest');
     }
 
     /**
@@ -23,6 +23,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $params = app( '\Aimeos\Shop\Base\Page' )->getSections( 'catalog-list' );
+        $miniBasket =  $params['aibody']['basket/mini'];
+        return view('home')->withBasket($miniBasket);
     }
 }
