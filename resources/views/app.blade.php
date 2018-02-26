@@ -51,7 +51,7 @@
 
 @endif
 @if(Auth::guest())
-
+<p>logni se we</p>
 @endif
 
 </body>

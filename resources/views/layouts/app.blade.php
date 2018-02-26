@@ -21,6 +21,8 @@
 
         <!-- Custom styles for this template -->
         <link href="css/home/grayscale.min.css" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="{{ asset('packages/aimeos/shop/themes/elegance/common.css') }}" />
+        <link type="text/css" rel="stylesheet" href="{{ asset('packages/aimeos/shop/themes/elegance/aimeos.css') }}" />
 
     </head>
 <body id="page-top">
@@ -66,16 +68,11 @@
                         <li><a class="nav-link" href="{{ route('register') }}">Register</a></li>
 
                     @endif
-                    @if(Auth::check())
-                        <div class="nav navbar-nav navbar-right">
-                            @yield('aimeos_head')
-                        </div>
-                    @endif
+                    @yield('small-basket')
                 </ul>
             </div>
         </div>
     </nav>
-
     @yield('content')
 
 <footer>
@@ -94,6 +91,11 @@
 
 <!-- Custom scripts for this template -->
 <script src="js/home/grayscale.min.js"></script>
+
+<script type="text/javascript" src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+<script type="text/javascript" src="{{ asset('packages/aimeos/shop/themes/jquery-ui.custom.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('packages/aimeos/shop/themes/aimeos.js') }}"></script>
+<script type="text/javascript" src="{{ asset('packages/aimeos/shop/themes/elegance/aimeos.js') }}"></script>
 
 </body>
 </html>

@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
+@section('small-basket')
+    {!! $basket !!}
+@endsection
 
-@if(isset($basket))
-    {{!!$basket!!}}
-@endif
-
+@section('content')
 <header class="masthead">
     <div class="intro-body">
         <div class="container">
@@ -75,4 +75,5 @@
         </div>
     </div>
 </section>
+@endsection
 
