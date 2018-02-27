@@ -20,9 +20,11 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
         <!-- Custom styles for this template -->
-        <link href="css/home/grayscale.min.css" rel="stylesheet">
+        <link href="{{asset('css/home/grayscale.min.css')}}" rel="stylesheet">
+        <link href="css/home/custom.css" rel="stylesheet">
         <link type="text/css" rel="stylesheet" href="{{ asset('packages/aimeos/shop/themes/elegance/common.css') }}" />
         <link type="text/css" rel="stylesheet" href="{{ asset('packages/aimeos/shop/themes/elegance/aimeos.css') }}" />
+
 
     </head>
 <body id="page-top">
