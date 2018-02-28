@@ -23,13 +23,8 @@ class HomeController extends Controller {
      */
     public function index()
     {
-        $viewData = array(
-            'products' =>
-                array(
-                    'price' => array(),
-                    'media' => array()
-                )
-        );
+        $bestSellers = array();
+        $media = array();
         $catalogList = app('\Aimeos\Shop\Base\Page')->getSections('catalog-list');
         $context = app('\Aimeos\Shop\Base\Context')->get();
         $manager = Factory::createManager($context, 'order/base/product');
@@ -39,23 +34,28 @@ class HomeController extends Controller {
         $orders = $manager->aggregate($filter, 'order.base.product.productid', 'order.base.product.quantity', 'sum');
         $manager = \Aimeos\MShop\Factory::createManager($context, 'product');
         foreach ($orders as $id => $count) {
+            $index = current($orders);
             $product = $manager->getItem($id, array('media', 'price'));
             if (isset($product) && !empty($product)) {
+                $bestSellers[$index]= $product->toArray();
                 $refItems = $product->getRefItems();
-                foreach ($refItems as $items) {
+                foreach ($refItems as $type => $items) {
                     foreach ($items as $item) {
-
+                        if($type == 'media') {
+                            array_push($media, $item->toArray());
+                            $bestSellers[$index]['media']= $media;
+                        }elseif ($type == 'price'){
+                           $bestSellers[$index][$type] = $item->toArray();
+                        }
                     }
                 }
             }
-            foreach ($refItems as $item) {
-                return $item->toArray();
-            }
+
         }
-        return;
+        //return $bestSellers;
         return view('home', [
             'basket' => $catalogList['aibody']['basket/mini'],
-            'bestsellers' => array($item)
+            'bestSellers' => $bestSellers
         ]);
     }
 }
