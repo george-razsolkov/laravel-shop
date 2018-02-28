@@ -158,32 +158,6 @@
     </section>
     <!--End Best Selllers Section -->
 
-    <!-- Contact Section -->
-    <section id="contact" class="content-section text-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <h2>Contact US BABY</h2>
-                    <p>Leave a message :)</p>
 
-                    <ul class="list-inline banner-social-buttons">
-                        <li class="list-inline-item">
-                            <a href="https://facebook.com/SBootstrap" class="btn btn-default btn-lg">
-                                <i class="fa fa-facebook "></i>
-                                <span class="network-name">Facebook</span>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="https://github.com/BlackrockDigital/startbootstrap" class="btn btn-default btn-lg">
-                                <i class="fa fa-twitter fa-fw"></i>
-                                <span class="network-name">Twitter</span>
-                            </a>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
 @endsection
 

@@ -24,6 +24,7 @@
         <link href="css/home/custom.css" rel="stylesheet">
         <link type="text/css" rel="stylesheet" href="{{ asset('packages/aimeos/shop/themes/elegance/common.css') }}" />
         <link type="text/css" rel="stylesheet" href="{{ asset('packages/aimeos/shop/themes/elegance/aimeos.css') }}" />
+        @yield('sign-up-styles')
 
 
     </head>
@@ -66,8 +67,7 @@
                         </li>
 
                     @else
-                        <li><a class="nav-link" href="{{ route('login') }}">Login</a></li>
-                        <li><a class="nav-link" href="{{ route('register') }}">Register</a></li>
+                        <li><a class="nav-link" href="{{ route('login') }}">Sign Up</a></li>
 
                     @endif
                     @yield('small-basket')
